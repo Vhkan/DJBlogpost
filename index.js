@@ -25,6 +25,13 @@ const connectDB = async() => {
     process.exit(1);
   }
 };
+// MongoDB connection
+connectDB().then(() =>
+{
+  app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+  });
+});
 
 //Creating a new BlogDB inside the MongoDB
 //mongoose.connect("mongodb://127.0.0.1:27017/BlogDB", {useNewUrlParser: true});
@@ -101,10 +108,5 @@ app.post("/delete", async (req, res) => {
 //   console.log("Server started on port 3000");
 // });
 
-connectDB().then(() =>
-{
-  app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
-  });
-});
+
 
